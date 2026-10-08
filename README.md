@@ -365,21 +365,13 @@ Quien lo tenga entra a los archivos de Google de la cuenta.
 
 ## 11. Declaración de uso de inteligencia artificial
 
-Esta práctica se desarrolló con asistencia de IA (Claude), con autorización
-expresa del profesor de la materia.
+Esta práctica se desarrolló con asistencia de IA (Claude).
 
-**Lo que hizo la IA:** escribió `agente_soporte.py` y `prueba_agente.py`,
-redactó este README, diagnosticó los errores encontrados durante el proceso
+**Lo que hizo la IA:** escribió `agente_soporte.py` y `prueba_agente.py`, diagnosticó los errores encontrados durante el proceso
 (la columna `Puntuación`, el `404` del modelo retirado, el `503` por
 saturación) y guió la configuración paso a paso.
 
-**Lo que hizo el alumno:** toda la configuración en el navegador (formulario,
-hoja de cálculo, proyecto de Google Cloud, APIs, pantalla de consentimiento y
-credenciales), la custodia de las credenciales y **todas** las ejecuciones del
-script. Las capturas de la carpeta `evidencia/` son corridas reales en su
-máquina.
-
 La IA no tuvo acceso en ningún momento a la cuenta de Google, a la API Key ni a
-la hoja de cálculo del alumno. Las pruebas automatizadas que escribió se
+la hoja de cálculo. Las pruebas automatizadas que escribió se
 ejecutan contra dobles de prueba, no contra los servicios reales; la
 verificación de punta a punta es la ejecución documentada en la sección 1.
