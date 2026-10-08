@@ -21,6 +21,8 @@ Sin que nadie lo toque, cada 15 minutos.
 
 ## 1. Resultado
 
+### 1.1 Las tres quejas iniciales
+
 Tres quejas enviadas por el formulario, clasificadas por Gemini en una sola corrida:
 
 | Correo | Comentario | Clasificación IA | Sentimiento IA |
@@ -34,6 +36,41 @@ Tres quejas enviadas por el formulario, clasificadas por Gemini en una sola corr
 ![Ejecución final en la terminal](evidencia/10-ejecucion-final-terminal.png)
 
 ![Hoja de cálculo con las tres filas clasificadas](evidencia/11-ejecucion-final-hoja.png)
+
+### 1.2 Ejecución autónoma
+
+La corrida anterior la lanzó una persona. Ésta no.
+
+El agente se dejó corriendo y, con él ya en marcha, se envió una cuarta
+respuesta por el formulario. Nadie volvió a tocar la terminal: el ciclo de
+`schedule` despertó solo quince minutos después, encontró la fila nueva y la
+procesó.
+
+| Marca de tiempo | Qué pasó |
+|---|---|
+| `23:37:40` | Primera pasada, lanzada a mano: *"Sin quejas nuevas. Nada que hacer."* |
+| `23:37:41` | El agente queda en marcha y se duerme |
+| *(en medio)* | Llega la cuarta queja por el formulario |
+| `23:53:11` | **El agente despierta solo**, encuentra 1 pendiente y la clasifica |
+
+| Correo | Comentario | Clasificación IA | Sentimiento IA |
+|---|---|---|---|
+| jorge@ejemplo.com | Gracias, el soporte me resolvió el problema en minutos, excelente atención | Soporte Técnico | **Positivo** |
+
+![Ejecución autónoma en la terminal](evidencia/12-ejecucion-autonoma-terminal.png)
+
+![Las cuatro filas clasificadas en la hoja](evidencia/13-ejecucion-autonoma-hoja.png)
+
+Esta evidencia demuestra dos cosas que la anterior no podía:
+
+1. **El agente trabaja sin supervisión.** Entre `23:37:41` y `23:53:11` nadie
+   tocó el teclado. Lo único que disparó la segunda pasada fue el intervalo de
+   `schedule`. Los 31 segundos de más sobre los quince minutos exactos son la
+   granularidad del `time.sleep(30)` del bucle principal.
+2. **El sentimiento no está fijo.** Las tres primeras quejas salieron
+   `Negativo` porque las tres eran reclamos. Un comentario de agradecimiento
+   sale `Positivo`, y la clasificación sigue siendo `Soporte Técnico`:
+   categoría y sentimiento se deciden por separado.
 
 ---
 
