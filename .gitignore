@@ -1,0 +1,20 @@
+# ---------------------------------------------------------------
+# CREDENCIALES. Nada de esto sube al repositorio.
+# ---------------------------------------------------------------
+
+# API Key de Gemini
+.env
+
+# Secreto OAuth de la aplicacion de escritorio
+client_secrets.json
+
+# Permiso de acceso a Google Drive / Sheets
+token_usuario.json
+
+# ---------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.venv/
+venv/
